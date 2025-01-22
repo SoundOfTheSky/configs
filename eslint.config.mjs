@@ -36,6 +36,9 @@ export default baseSeverityOnFixability(
         'unused-imports': unusedImports,
       },
       rules: {
+        'prefer-math-min-max': 0, // Tenary is faster
+        '@typescript-eslint/no-dynamic-delete': 0, // Don't cripple devs
+        '@typescript-eslint/prefer-string-starts-ends-with': 0, // Sometimes is overhead
         '@typescript-eslint/consistent-type-definitions': [2, 'type'], // Types are easier to manage
         '@typescript-eslint/explicit-member-accessibility': 1, // provide access modifiers
         '@typescript-eslint/no-misused-promises': 0, // Some callbacks ignore return type
@@ -57,6 +60,29 @@ export default baseSeverityOnFixability(
             allowNumberAndString: true,
           },
         ], // number is easily converted to string
+        '@typescript-eslint/no-unused-vars': [
+          1,
+          {
+            args: 'all',
+            argsIgnorePattern: '^_',
+            caughtErrors: 'all',
+            caughtErrorsIgnorePattern: '^_',
+            destructuredArrayIgnorePattern: '^_',
+            varsIgnorePattern: '^_',
+            ignoreRestSiblings: true,
+          },
+        ],
+        '@typescript-eslint/no-unnecessary-condition': [
+          2,
+          {
+            allowConstantLoopConditions: true,
+          },
+        ], // while(true) {...break...} is a part of normal coding
+        /**
+         * Good dev will use these sparingly.
+         * Sometimes it's so much easier than creating insane generic.
+         */
+        '@typescript-eslint/no-explicit-any': 0,
 
         'unused-imports/no-unused-imports': 1,
         'unused-imports/no-unused-vars': [
@@ -71,7 +97,6 @@ export default baseSeverityOnFixability(
 
         'jsx-a11y/media-has-caption': 0, // Sometimes sound is just a sound but I belive that this is useful
 
-        'import-x/prefer-default-export': 1,
         'import-x/order': [
           1,
           {
@@ -106,8 +131,6 @@ export default baseSeverityOnFixability(
         ],
         'import-x/newline-after-import': 1,
         'import-x/first': 1,
-        'import-x/no-dynamic-require': 'warn',
-        'import-x/no-nodejs-modules': 'warn',
 
         'unicorn/prefer-math-trunc': 0, // ~~ Is faster than Math.trunk (in Firefox and Safari)
         /**
@@ -115,6 +138,13 @@ export default baseSeverityOnFixability(
          * For of uses iterators to loop, which is a significant overhead.
          */
         'unicorn/no-for-loop': 0,
+        'unicorn/no-array-callback-reference': 0,
+        'unicorn/no-array-method-this-argument': 0, 
+        'unicorn/no-new-array': 0, // Just disagree
+        'unicorn/prefer-code-point': 0, // Overhead, but yeah it's useful
+        'unicorn/prefer-modern-math-apis': 0, // Bruh, "modern" math apis are slow af
+        'unicorn/no-null': 0, // Sometimes needed
+        'unicorn/expiring-todo-comments': 0,
       },
     },
   ),

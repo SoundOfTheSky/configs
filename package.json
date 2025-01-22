@@ -1,6 +1,6 @@
 {
   "name": "@softsky/configs",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "description": "SoundOfTheSky's configs",
   "repository": {
     "type": "git",
@@ -22,18 +22,18 @@
   },
   "homepage": "https://github.com/SoundOfTheSky/configs#readme",
   "dependencies": {
-    "@eslint/js": "^9.16.0",
-    "@stylistic/eslint-plugin": "^2.11.0",
+    "@eslint/js": "^9.18.0",
+    "@stylistic/eslint-plugin": "^2.13.0",
     "@types/eslint__js": "^8.42.3",
-    "eslint": "^9.16.0",
-    "eslint-import-resolver-typescript": "^3.6.3",
-    "eslint-plugin-import-x": "^4.4.3",
+    "eslint": "^9.18.0",
+    "eslint-import-resolver-typescript": "^3.7.0",
+    "eslint-plugin-import-x": "^4.6.1",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-unicorn": "^56.0.1",
     "eslint-plugin-unused-imports": "^4.1.4",
-    "prettier": "^3.4.1",
-    "sass": "^1.81.0",
-    "stylelint": "^16.11.0",
+    "prettier": "^3.4.2",
+    "sass": "^1.83.4",
+    "stylelint": "^16.13.2",
     "stylelint-config-hudochenkov": "^11.0.0",
     "stylelint-config-prettier-scss": "^1.0.0",
     "stylelint-config-standard-scss": "^14.0.0",
@@ -41,8 +41,8 @@
     "stylelint-high-performance-animation": "^1.10.0",
     "stylelint-order": "^6.0.4",
     "stylelint-prettier": "^5.0.2",
-    "stylelint-scss": "^6.10.0",
-    "typescript": "^5.7.2",
-    "typescript-eslint": "^8.16.0"
+    "stylelint-scss": "^6.10.1",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.21.0"
   }
 }
