@@ -1,21 +1,20 @@
 // @ts-check
 
-import eslint from '@eslint/js'
-import StylisticPlugin from '@stylistic/eslint-plugin'
-import tsParser from '@typescript-eslint/parser'
-import eslintPluginImportX from 'eslint-plugin-import-x'
-import jsxA11y from 'eslint-plugin-jsx-a11y'
-import eslintPluginUnicorn from 'eslint-plugin-unicorn'
-import unusedImports from 'eslint-plugin-unused-imports'
-import tseslint from 'typescript-eslint'
+import eslint from '@eslint/js';
+import tsParser from '@typescript-eslint/parser';
+import eslintPluginImportX from 'eslint-plugin-import-x';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import eslintPluginUnicorn from 'eslint-plugin-unicorn';
+import unusedImports from 'eslint-plugin-unused-imports';
+import tseslint from 'typescript-eslint';
 
 export default baseSeverityOnFixability(
   tseslint.config(
     eslint.configs.recommended,
     ...tseslint.configs.strictTypeChecked,
     ...tseslint.configs.stylisticTypeChecked,
-    StylisticPlugin.configs['disable-legacy'],
-    StylisticPlugin.configs['recommended-flat'],
+    eslintPluginPrettierRecommended,
     eslintPluginUnicorn.configs['flat/recommended'],
     jsxA11y.flatConfigs.strict,
     eslintPluginImportX.flatConfigs.recommended,
