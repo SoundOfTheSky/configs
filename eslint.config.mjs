@@ -131,19 +131,23 @@ export default baseSeverityOnFixability(
         'import-x/newline-after-import': 1,
         'import-x/first': 1,
 
-        'unicorn/prefer-math-trunc': 0, // ~~ Is faster than Math.trunk (in Firefox and Safari)
-        /**
+        'unicorn/prefer-math-trunc': 0, // | 0 Is faster than Math.trunk (in Firefox and Safari)
+        'unicorn/consistent-function-scoping': 0,
+        'unicorn/expiring-todo-comments': 0, // Keep it simple
+        'unicorn/no-array-callback-reference': 0, // Need it sometimes
+        'unicorn/no-array-method-this-argument': 0, // Need it sometimes
+         /**
          * Standart for loop is insanely faster than for of.
          * For of uses iterators to loop, which is a significant overhead.
          */
         'unicorn/no-for-loop': 0,
-        'unicorn/no-array-callback-reference': 0,
-        'unicorn/no-array-method-this-argument': 0, 
+        'unicorn/no-nested-ternary': 0, // Sorry, I just want them
         'unicorn/no-new-array': 0, // Just disagree
-        'unicorn/prefer-code-point': 0, // Overhead, but yeah it's useful
-        'unicorn/prefer-modern-math-apis': 0, // Bruh, "modern" math apis are slow af
         'unicorn/no-null': 0, // Sometimes needed
-        'unicorn/expiring-todo-comments': 0,
+        'unicorn/no-useless-undefined': 0,
+        'unicorn/prefer-code-point': 0, // Overhead, but yeah it's useful
+        'unicorn/prefer-math-min-max': 0, // It's slower
+        'unicorn/prefer-modern-math-apis': 0, // Bruh, "modern" math apis are slow af
       },
     },
   ),
