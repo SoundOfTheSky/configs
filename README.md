@@ -1,8 +1,22 @@
-# @softsky/configs
-Collection of configs and linters that I use in my projects.
+<div align="center">
 
-## Installation
+# Sky configs
+**Collection of configs and linters that I use in my projects.**
+
+[![Latest Stable Version](https://img.shields.io/npm/v/@softsky/configs.svg)](https://www.npmjs.com/package/@softsky/configs)
+[![NPM Downloads](https://img.shields.io/npm/dm/@softsky/configs.svg)](https://www.npmjs.com/package/@softsky/configs)
+[![NPM Downloads](https://img.shields.io/npm/dt/@softsky/configs.svg)](https://www.npmjs.com/package/@softsky/configs)
+[![Bundlephobia Size](https://img.shields.io/bundlephobia/minzip/@softsky/configs.svg)](https://www.npmjs.com/package/@softsky/configs)
+
 `npm i -D @softsky/configs`
+
+A bunch of configs for TypeScript environments.
+</div>
+
+# Contribute
+I don't know why would you want to, but feel free to.
+
+# Setup
   
 ## ESLint
 Create `eslint.config.mjs` and put
