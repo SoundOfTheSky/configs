@@ -1,21 +1,21 @@
 // @ts-check
 
-import eslint from '@eslint/js';
-import tsParser from '@typescript-eslint/parser';
-import eslintPluginImportX from 'eslint-plugin-import-x';
-import jsxA11y from 'eslint-plugin-jsx-a11y';
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
-import eslintPluginUnicorn from 'eslint-plugin-unicorn';
-import unusedImports from 'eslint-plugin-unused-imports';
-import tseslint from 'typescript-eslint';
+import eslint from '@eslint/js'
+import tsParser from '@typescript-eslint/parser'
+import eslintPluginImportX from 'eslint-plugin-import-x'
+import jsxA11y from 'eslint-plugin-jsx-a11y'
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
+import eslintPluginUnicorn from 'eslint-plugin-unicorn'
+import unusedImports from 'eslint-plugin-unused-imports'
+import tseslint from 'typescript-eslint'
 
 export default baseSeverityOnFixability(
   tseslint.config(
-    eslint.configs.recommended,
+    structuredClone(eslint.configs.recommended),
     ...tseslint.configs.strictTypeChecked,
     ...tseslint.configs.stylisticTypeChecked,
     eslintPluginPrettierRecommended,
-    eslintPluginUnicorn.configs['flat/recommended'],
+    eslintPluginUnicorn.configs.recommended,
     jsxA11y.flatConfigs.strict,
     eslintPluginImportX.flatConfigs.recommended,
     eslintPluginImportX.flatConfigs.typescript,
@@ -143,10 +143,15 @@ export default baseSeverityOnFixability(
 
 function baseSeverityOnFixability(configs) {
   const plugins = {}
-  for (const config of configs)
-    for (const name in config.plugins) plugins[name] = config.plugins[name]
   for (const config of configs) {
-    if (!config.rules) continue
+    for (const name in config.plugins) {
+      plugins[name] = config.plugins[name]
+    }
+  }
+  for (const config of configs) {
+    if (!config.rules) {
+      continue
+    }
     for (const ruleName in config.rules) {
       const slashIndex = ruleName.indexOf('/')
       const pluginName =
@@ -158,10 +163,11 @@ function baseSeverityOnFixability(configs) {
         ? 1
         : 2
       const rule = config.rules[ruleName]
-      if (Array.isArray(rule) && rule[0] !== 'off' && rule[0] !== 0)
+      if (Array.isArray(rule) && rule[0] !== 'off' && rule[0] !== 0) {
         rule[0] = severity
-      else if (rule !== 'off' && rule !== 0)
-        config.rules = { ...config.rules, [ruleName]: severity }
+      } else if (rule !== 'off' && rule !== 0) {
+        config.rules[ruleName] = severity
+      }
     }
   }
   return configs

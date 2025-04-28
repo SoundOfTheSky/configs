@@ -32,4 +32,4 @@ export default {
     ],
     'plugin/declaration-block-no-ignored-properties': true,
   },
-};
+}
