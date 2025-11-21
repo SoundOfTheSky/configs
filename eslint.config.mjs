@@ -1,21 +1,20 @@
 // @ts-check
 
+import { defineConfig } from 'eslint/config'
 import eslint from '@eslint/js'
 import tsParser from '@typescript-eslint/parser'
 import eslintPluginImportX from 'eslint-plugin-import-x'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
-import eslintPluginUnicorn from 'eslint-plugin-unicorn'
 import unusedImports from 'eslint-plugin-unused-imports'
 import tseslint from 'typescript-eslint'
 
 export default baseSeverityOnFixability(
-  tseslint.config(
+  defineConfig([
     structuredClone(eslint.configs.recommended),
     ...tseslint.configs.strictTypeChecked,
     ...tseslint.configs.stylisticTypeChecked,
     eslintPluginPrettierRecommended,
-    eslintPluginUnicorn.configs.recommended,
     jsxA11y.flatConfigs.strict,
     eslintPluginImportX.flatConfigs.recommended,
     eslintPluginImportX.flatConfigs.typescript,
@@ -122,29 +121,19 @@ export default baseSeverityOnFixability(
         ],
         'import-x/newline-after-import': 1,
         'import-x/first': 1,
-
-        'unicorn/prefer-math-trunc': 0, // | 0 Is faster than Math.trunk (in Firefox and Safari)
-        'unicorn/consistent-function-scoping': 0, // Don't get in my way
-        'unicorn/expiring-todo-comments': 0, // Keep it simple
-        'unicorn/no-array-callback-reference': 0, // Need it sometimes
-        'unicorn/no-array-method-this-argument': 0, // Need it sometimes
-        'unicorn/no-for-loop': 0, // Standart for loop is faster
-        'unicorn/no-nested-ternary': 0, // Sorry, I just want them
-        'unicorn/no-new-array': 0, // Just disagree
-        'unicorn/no-null': 0, // Sometimes needed
-        'unicorn/no-useless-undefined': 0, // This rule has a hard time determining if it's useful or not
-        'unicorn/prefer-code-point': 0, // Overhead, but yeah it's useful
-        'unicorn/prefer-math-min-max': 0, // It's slower
-        'unicorn/prefer-modern-math-apis': 0, // Bruh, "modern" math apis are slow af
       },
     },
-  ),
+  ]),
 )
 
+/**
+ * @param {import('eslint/config').Config[]} configs
+ */
 function baseSeverityOnFixability(configs) {
   const plugins = {}
   for (const config of configs) {
     for (const name in config.plugins) {
+      // @ts-ignore
       plugins[name] = config.plugins[name]
     }
   }
@@ -158,6 +147,7 @@ function baseSeverityOnFixability(configs) {
         slashIndex === -1 ? 'eslint' : ruleName.slice(0, slashIndex)
       const pluginRuleName =
         slashIndex === -1 ? ruleName : ruleName.slice(slashIndex + 1)
+      // @ts-ignore
       const severity = plugins[pluginName]?.rules?.[pluginRuleName]?.meta
         ?.fixable
         ? 1

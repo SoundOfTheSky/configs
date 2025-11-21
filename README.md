@@ -1,6 +1,7 @@
 <div align="center">
 
 # Sky configs
+
 **Collection of configs and linters that I use in my projects.**
 
 [![Latest Stable Version](https://img.shields.io/npm/v/@softsky/configs.svg)](https://www.npmjs.com/package/@softsky/configs)
@@ -14,12 +15,15 @@ A bunch of configs for TypeScript environments.
 </div>
 
 # Contribute
+
 I don't know why would you want to, but feel free to.
 
 # Setup
   
 ## ESLint
+
 Create `eslint.config.mjs` and put
+
 ```js
 // @ts-check
 import skyEslintConfig from '@softsky/configs/eslint.config.mjs';
@@ -30,7 +34,9 @@ export default [
 ];
 
 ```
-### Features
+
+### ESLint Features
+
 - Very strict
 - TypeScript
 - Stylistic
@@ -39,20 +45,27 @@ export default [
 - Unicorn
 
 ## TSConfig
-Create `tsconfig.json` and put 
+
+Create `tsconfig.json` and put
+
 ```json
 {
   "extends": "@softsky/configs/tsconfig.json"
 }
 ```
+
 Also you can use `@softsky/configs/tsconfig-emit.json` to enable TSC emitting build.
-### Features:
+
+### TSConfig Features
+
 - Latest syntax support (no transposing)
 - `./src` is base directory
 - `@/...` to reference root
 
 ## Prettier
+
 Create `prettier.config.mjs` and put
+
 ```js
 // @ts-check
 import skyPrettierConfig from '@softsky/configs/prettier.config.mjs';
@@ -61,12 +74,16 @@ import skyPrettierConfig from '@softsky/configs/prettier.config.mjs';
 export default {...skyPrettierConfig};
 
 ```
-### Features:
+
+### Prettier Features
+
 - Developer expirience is more important than older browser support
 - Single quote
 
 ## Stylelint
+
 Create `stylelint.config.mjs` and put
+
 ```js
 // @ts-check
 
@@ -75,10 +92,11 @@ export default {
   extends: ['@softsky/configs/stylelint.config.mjs'],
 };
 ```
-### Features
+
+### Stylelint Features
+
 - Prettier
 - SCSS
 - High performance animation
 - Ordering
-  
   
