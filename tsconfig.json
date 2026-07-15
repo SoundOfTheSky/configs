@@ -1,24 +1,25 @@
 {
   "compilerOptions": {
-    "allowImportingTsExtensions": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "${configDir}/src",
     "composite": true,
-    "forceConsistentCasingInFileNames": true,
     "jsx": "preserve",
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "module": "esnext",
+    "lib": [
+      "ESNext",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "moduleDetection": "force",
     "moduleResolution": "bundler",
     "noEmit": true,
-    "noUncheckedIndexedAccess": true,
     "paths": {
-      "@/*": ["${configDir}/src/*"]
+      "@/*": [
+        "${configDir}/src/*"
+      ]
     },
-    "rootDir": "${configDir}/src",
-    "skipLibCheck": true,
-    "strict": true,
-    "target": "esnext"
+    "rewriteRelativeImportExtensions": true,
+    "rootDir": "${configDir}/src"
   },
-  "include": ["${configDir}/src"]
+  "include": [
+    "${configDir}/src"
+  ]
 }

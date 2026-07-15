@@ -4,7 +4,6 @@ import { defineConfig } from 'eslint/config'
 import eslint from '@eslint/js'
 import tsParser from '@typescript-eslint/parser'
 import eslintPluginImportX from 'eslint-plugin-import-x'
-import jsxA11y from 'eslint-plugin-jsx-a11y'
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import unusedImports from 'eslint-plugin-unused-imports'
 import tseslint from 'typescript-eslint'
@@ -15,7 +14,6 @@ export default baseSeverityOnFixability(
     ...tseslint.configs.strictTypeChecked,
     ...tseslint.configs.stylisticTypeChecked,
     eslintPluginPrettierRecommended,
-    jsxA11y.flatConfigs.strict,
     eslintPluginImportX.flatConfigs.recommended,
     eslintPluginImportX.flatConfigs.typescript,
     {
@@ -84,9 +82,6 @@ export default baseSeverityOnFixability(
             argsIgnorePattern: '^_',
           },
         ],
-
-        'jsx-a11y/media-has-caption': 0, // Sometimes sound is just a sound but I belive that this is useful
-
         'import-x/order': [
           1,
           {
