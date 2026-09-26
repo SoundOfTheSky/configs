@@ -25,12 +25,12 @@ I don't know why would you want to, but feel free to.
 Create `oxlint.config.ts` and put
 
 ```ts
-import { defineConfig } from 'oxlint'
-import skyConfig from '@softsky/configs/oxlint.config.mjs'
+import { defineConfig } from "oxlint";
+import skyConfig from "@softsky/configs/oxlint.config.js";
 
 export default defineConfig({
   extends: [skyConfig],
-})
+});
 ```
 
 ## Oxfmt
@@ -38,12 +38,12 @@ export default defineConfig({
 Create `oxfmt.config.ts` and put
 
 ```ts
-import { defineConfig } from 'oxfmt'
-import skyConfig from '@softsky/configs/oxfmt.config.ts'
+import { defineConfig } from "oxfmt";
+import skyConfig from "@softsky/configs/oxfmt.config.js";
 
 export default defineConfig({
   ...skyConfig,
-})
+});
 ```
 
 ## TSConfig
@@ -64,10 +64,10 @@ Create `prettier.config.mjs` and put
 
 ```js
 // @ts-check
-import skyPrettierConfig from '@softsky/configs/prettier.config.mjs'
+import skyPrettierConfig from "@softsky/configs/prettier.config.mjs";
 
 /** @type {import("prettier").Config} */
-export default { ...skyPrettierConfig }
+export default { ...skyPrettierConfig };
 ```
 
 ## Stylelint
@@ -79,6 +79,6 @@ Create `stylelint.config.mjs` and put
 
 /** @type {import("stylelint").Config} */
 export default {
-  extends: ['@softsky/configs/stylelint.config.mjs'],
-}
+  extends: ["@softsky/configs/stylelint.config.mjs"],
+};
 ```

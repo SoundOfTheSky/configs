@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "allowArbitraryExtensions": true,
+    "allowImportingTsExtensions": true,
     "allowSyntheticDefaultImports": true,
     "composite": true,
     "jsx": "preserve",
