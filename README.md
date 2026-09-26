@@ -19,30 +19,32 @@ A bunch of configs for TypeScript environments.
 I don't know why would you want to, but feel free to.
 
 # Setup
-  
-## ESLint
 
-Create `eslint.config.mjs` and put
+## Oxlint
 
-```js
-// @ts-check
-import skyEslintConfig from '@softsky/configs/eslint.config.mjs';
+Create `oxlint.config.ts` and put
 
-/** @type {import("typescript-eslint").Config} */
-export default [
-  ...skyEslintConfig,
-];
+```ts
+import { defineConfig } from 'oxlint'
+import skyConfig from '@softsky/configs/oxlint.config.mjs'
 
+export default defineConfig({
+  extends: [skyConfig],
+})
 ```
 
-### ESLint Features
+## Oxfmt
 
-- Very strict
-- TypeScript
-- Stylistic
-- Unused imports
-- Import order
-- Unicorn
+Create `oxfmt.config.ts` and put
+
+```ts
+import { defineConfig } from 'oxfmt'
+import skyConfig from '@softsky/configs/oxfmt.config.ts'
+
+export default defineConfig({
+  ...skyConfig,
+})
+```
 
 ## TSConfig
 
@@ -54,13 +56,7 @@ Create `tsconfig.json` and put
 }
 ```
 
-Also you can use `@softsky/configs/tsconfig-emit.json` to enable TSC emitting build.
-
-### TSConfig Features
-
-- Latest syntax support (no transposing)
-- `./src` is base directory
-- `@/...` to reference root
+Also you can use `@softsky/configs/tsconfig.emit.json` to enable TSC emitting build.
 
 ## Prettier
 
@@ -68,17 +64,11 @@ Create `prettier.config.mjs` and put
 
 ```js
 // @ts-check
-import skyPrettierConfig from '@softsky/configs/prettier.config.mjs';
+import skyPrettierConfig from '@softsky/configs/prettier.config.mjs'
 
 /** @type {import("prettier").Config} */
-export default {...skyPrettierConfig};
-
+export default { ...skyPrettierConfig }
 ```
-
-### Prettier Features
-
-- Developer expirience is more important than older browser support
-- Single quote
 
 ## Stylelint
 
@@ -90,13 +80,5 @@ Create `stylelint.config.mjs` and put
 /** @type {import("stylelint").Config} */
 export default {
   extends: ['@softsky/configs/stylelint.config.mjs'],
-};
+}
 ```
-
-### Stylelint Features
-
-- Prettier
-- SCSS
-- High performance animation
-- Ordering
-  

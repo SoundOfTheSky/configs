@@ -1,25 +1,21 @@
 {
   "compilerOptions": {
+    "allowArbitraryExtensions": true,
     "allowSyntheticDefaultImports": true,
     "composite": true,
     "jsx": "preserve",
-    "lib": [
-      "ESNext",
-      "DOM",
-      "DOM.Iterable"
-    ],
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "moduleDetection": "force",
     "moduleResolution": "bundler",
     "noEmit": true,
     "paths": {
-      "@/*": [
-        "${configDir}/src/*"
-      ]
+      "@/*": ["${configDir}/src/*"]
     },
     "rewriteRelativeImportExtensions": true,
-    "rootDir": "${configDir}/src"
+    "rootDir": "${configDir}/src",
+    "skipLibCheck": true,
+    "tsBuildInfoFile": "${configDir}/node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "verbatimModuleSyntax": true
   },
-  "include": [
-    "${configDir}/src"
-  ]
+  "include": ["${configDir}/src"]
 }
